@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {background-color: Tomato;}
+h1   {color: blue;}
+div  {padding : 16px;
+      background-color : #F0E7C5
+</style>
+</head>
+<div>
+    <h1>{{question.question_text}}</h1>
+</div>
+<body>
+
+
+
+
+{% if error_message %} <p><strong>{{error_message}}</strong></p> {% endif %}
+
+<form action="{% url 'polls:votes' question.id %}" method="post">
+{% csrf_token %}
+{% for choice in question.choice_set.all %}
+    <input type="radio" name="choice" id="choice {{forloop.counter}}" value="{{choice.id}}">
+    <label for="choice {{ forloop.counter }}">{{ choice.choice_text }}</label><br>
+{% endfor %}
+<input type="submit" value="vote">
+</form>
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
